@@ -1,5 +1,5 @@
 <?php
-namespace App\Router;
+namespace App\Kernel\Router;
 
 //класс, отвечающий за обработку маршрутов//
 class Router
