@@ -2,15 +2,23 @@
 namespace App\Kernel;
 
 //класс, отвечающий за запуск приложения//
-use App\Kernel\Router\Router;
-use App\Kernel\Http\Request;
+
+use App\Kernel\Container\Container;
 
 class App
 {
-    public function run(): void
+    private Container $container;
+    public function __construct()
     {
-        $router = new Router();
-        $request = Request::createFromGlobals();
-        $router->dispatch($request->uri(),$request->method());
+        $this->container= new Container();
+    }
+
+    public function run(): void
+    {$this->container
+        ->router
+        ->dispatch(
+            $this->container->request->uri(),
+            $this->container->request->method()
+        );
     }
 }
