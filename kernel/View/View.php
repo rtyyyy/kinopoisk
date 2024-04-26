@@ -22,7 +22,7 @@ class View
             echo "Component $name not found";
             return;
         }
-        extract(array_merge($this->defaultData(), $data));
+        // extract(array_merge($this->defaultData(), $data));
 
         include $componentPath;
     }
