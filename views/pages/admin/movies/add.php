@@ -9,7 +9,7 @@
 <form action="/admin/movies/add" method="post">
     <p>name</p>
     <div>
-        <input type="text">
+        <input type="text" name="name">
     </div>
     <div>
         <button>add</button>
