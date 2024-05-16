@@ -1,6 +1,7 @@
 <?php
 /**
  * @var \App\Kernel\View\View $view
+ * @var \App\Kernel\Session\SessionInterface $session
  */
 ?>
 <?php $view->component('start'); ?>
@@ -11,6 +12,12 @@
     <div>
         <input type="text" name="name">
     </div>
+    <?php if($session->has(key:'name')){ ?>
+        <ul>
+        <li style="color:red;">err1</li>
+    </ul>
+    <?php }?>
+   
     <div>
         <button>add</button>
     </div>

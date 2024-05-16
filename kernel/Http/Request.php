@@ -4,7 +4,7 @@ namespace App\Kernel\Http;
 
 use App\Kernel\Validator\ValidatorInterface;
 //инкапсулируем запросы
-class Request
+class Request implements RequestInterface
 {
     private ValidatorInterface $validator;
     public function __construct(
