@@ -17,15 +17,17 @@ class MovieController extends Controller
     {
         $this->view('admin/movies/add');
     }
-    public function store()
+    public function store(): void
     {
-        
-        $data = ['name'=>'truename'];
-        $rules = ['name' => ['required', 'min:3', 'max:255']];
-        $validator = new Validator();
-        dd($validator->validate($data, $rules), $validator->errors());
-        dd($this->request()-> input('name'));
-        
+        $validation = $this->request()->validate([
+            'name' => ['required', 'min:3', 'max:50'],
+        ]);
+
+        if (! $validation) {
+            $this->redirect('/admin/movies/add');
+            // dd('validation failed', $this->request()->errors());
+        }
+        dd('validation passed');
     }
 
 }
